@@ -1,2 +1,8 @@
 # My-Projects
 A collection of the projects I'm working on or have completed!
+
+Tetris is a pygames project that has all the functionality of a normal tetris game! This version of tetris is able to keep track and document high scores so that you always have something to aim for.
+
+Minesweeper is another pygames project that lets you play a normal game of minesweeper. The size of board can be changed directly in the code to give yourself more/less of a challenge.
+
+The class project I did was taking a large set of airline data such as late flights, canceled flights, early flights, etc., between numerous different airlines and finding which was the most reliable. This was done by first importing the data into MATLAB and scrubbing the data for empty cells/sets. Then for each notable category we wanted to compare, we found the average for each airline and compared them to eventually decide what was the best choice to fly.
