@@ -1,6 +1,6 @@
 import requests
 
-api_key = "RGAPI-c84d3bc7-1a13-47ec-b12e-b92f3db0b9ed"
+api_key = ""
 ARAM_games = []
 CLASSIC_games = []
 
