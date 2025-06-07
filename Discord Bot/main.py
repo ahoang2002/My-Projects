@@ -8,15 +8,16 @@ from urllib.parse import urlparse
 from discord.ext import commands
 from dotenv import load_dotenv
 
+load_dotenv()
+
 def is_twitter_link(url):
     parsed = urlparse(url)
     return parsed.netloc.endswith(('twitter.com', 'x.com', 't.co'))
 
-load_dotenv()
 DISCORD_TOKEN = os.getenv('Discord_Token')
 TWITTER_BEARER_TOKEN = os.getenv('Twitter_Bearer_Token')
-DISCORD_CHANNEL_ID = 
-TWITTER_USERNAME = ''    
+DISCORD_CHANNEL_ID = 1371264562132815875  
+TWITTER_USERNAME = 'andrew20020'    
 KEYWORDS = ['Details', 'Sunday'] 
 
 intents = discord.Intents.default()
@@ -106,7 +107,7 @@ async def sunnysunday(ctx):
         picture = discord.File(file)
         await ctx.send("Here is the Sunny Sunday schedule:", file=picture)
 
-
+        
 @bot.event
 async def on_ready():
     print(f'Logged in as {client.user}')
