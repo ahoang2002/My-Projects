@@ -2,11 +2,11 @@ import discord
 from discord.ext import commands
 import tweepy
 import os
+from dotenv import load_dotenv
 
-# # --- Twitter API Setup ---
-# # Replace these with your actual keys
-DISCORD_TOKEN = 'MTM3MDU2MTI3ODUxMDIzNTY5OQ.GuQM6G.INJNekLmeG0ggX6q8xQv1LoaZ38S9jt3OmZVws'
-TWITTER_BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAF9J1wEAAAAAe1Nur1Pp7EL8bPseQItvzUd7vQQ%3DZwb2rSZoXLKJicXhGmgJjC9I4wbOszz3xUfKafz1AABvp2N7M0'
+load_dotenv()
+DISCORD_TOKEN = os.getenv('Discord_Token')
+TWITTER_BEARER_TOKEN = os.getenv('Twitter_Bearer_Token')
 
 twitter_client = tweepy.Client(bearer_token=TWITTER_BEARER_TOKEN)
 
