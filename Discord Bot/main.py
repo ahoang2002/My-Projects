@@ -6,15 +6,17 @@ import re
 import tweepy
 from urllib.parse import urlparse
 from discord.ext import commands
+from dotenv import load_dotenv
 
 def is_twitter_link(url):
     parsed = urlparse(url)
     return parsed.netloc.endswith(('twitter.com', 'x.com', 't.co'))
 
-DISCORD_TOKEN = 'MTM3MDU2MTI3ODUxMDIzNTY5OQ.GuQM6G.INJNekLmeG0ggX6q8xQv1LoaZ38S9jt3OmZVws'
-TWITTER_BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAF9J1wEAAAAAe1Nur1Pp7EL8bPseQItvzUd7vQQ%3DZwb2rSZoXLKJicXhGmgJjC9I4wbOszz3xUfKafz1AABvp2N7M0'
-DISCORD_CHANNEL_ID = 1371264562132815875  
-TWITTER_USERNAME = 'andrew20020'    
+load_dotenv()
+DISCORD_TOKEN = os.getenv('Discord_Token')
+TWITTER_BEARER_TOKEN = os.getenv('Twitter_Bearer_Token')
+DISCORD_CHANNEL_ID = 
+TWITTER_USERNAME = ''    
 KEYWORDS = ['Details', 'Sunday'] 
 
 intents = discord.Intents.default()
