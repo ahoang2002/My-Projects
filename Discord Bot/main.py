@@ -8,7 +8,10 @@ from urllib.parse import urlparse
 from discord.ext import commands
 from dotenv import load_dotenv
 
+from keep_alive import keep_alive
+
 load_dotenv()
+keep_alive()
 
 def is_twitter_link(url):
     parsed = urlparse(url)
@@ -16,7 +19,7 @@ def is_twitter_link(url):
 
 DISCORD_TOKEN = os.getenv('Discord_Token')
 TWITTER_BEARER_TOKEN = os.getenv('Twitter_Bearer_Token')
-DISCORD_CHANNEL_ID = 1371264562132815875  
+DISCORD_CHANNEL_ID = 1373713211198799893
 TWITTER_USERNAME = 'andrew20020'    
 KEYWORDS = ['Details', 'Sunday'] 
 
@@ -45,7 +48,7 @@ async def fetch_latest_tweets():
     async with aiohttp.ClientSession() as session:
         async with session.get(url, headers=headers) as resp:
             user_data = await resp.json()
-            # print("User lookup response:", user_data)
+            print("User lookup response:", user_data)
             user_id = user_data['data']['id']
 
         tweet_url = f'https://api.twitter.com/2/users/{user_id}/tweets'
