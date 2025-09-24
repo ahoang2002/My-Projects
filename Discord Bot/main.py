@@ -19,9 +19,10 @@ def is_twitter_link(url):
 
 DISCORD_TOKEN = os.getenv('Discord_Token')
 TWITTER_BEARER_TOKEN = os.getenv('Twitter_Bearer_Token')
-DISCORD_CHANNEL_ID = 1373713211198799893
-TWITTER_USERNAME = 'andrew20020'    
-KEYWORDS = ['Details', 'Sunday'] 
+# DISCORD_CHANNEL_ID = 1060745414841737366
+DISCORD_CHANNEL_ID = 1371264562132815875
+TWITTER_USERNAME = 'Maplestory'    
+KEYWORDS = ['Details', 'details', 'Sunday', 'Patch', 'patch', 'Note', 'note', 'Sunny', 'sunny', 'Notes', 'notes'] 
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -48,7 +49,7 @@ async def fetch_latest_tweets():
     async with aiohttp.ClientSession() as session:
         async with session.get(url, headers=headers) as resp:
             user_data = await resp.json()
-            print("User lookup response:", user_data)
+            # print("User lookup response:", user_data)
             user_id = user_data['data']['id']
 
         tweet_url = f'https://api.twitter.com/2/users/{user_id}/tweets'
@@ -105,11 +106,51 @@ async def fetch_latest_tweets():
 #Command to output overall Sunny Sunday Schedule
 @bot.command()
 async def sunnysunday(ctx):
-    image_path = "./Discord Bot/SunnySunday.png"
-    with open(image_path, "rb") as file:
-        picture = discord.File(file)
-        await ctx.send("Here is the Sunny Sunday schedule:", file=picture)
+    await ctx.send(
+        "**September 28:** \n"
+        "• 30% off Star Force enhancements \n"
+        "• [HEXA Matrix] When main stats are Lv. 5+, main stats' Enhancement change increased 20% \n"
 
+        "**October 5:** \n"
+        "• 250% Monster Park Clear EXP \n"
+        "• Excludes Monster Park Extreme \n"
+        "• 5x EXP for Pollo, Fritto, and Especia Bounty Hunting \n"
+        "• 5x EXP Inferno Wolf Exit EXP \n"
+
+        "**October 12, 2025** \n"	
+        "• Combo Kill EXP + 300% \n"
+        "• +100% Rune EXP buff effect (3x normal EXP) \n"
+        "• Rune Appearance Cooldown and Cooldown Reduction (from 15 min to 10 min) \n"
+        "• 2x chance for new Monster Collection monsters \n"
+        "• Mysterious Monsterbloom (x3): Untradable, 7-day duration. \n"
+
+        "**October 19, 2025** \n"	
+        "• 50% off Spell Trace enhancements \n"
+        "• 50% off Ability resets \n"
+        "• 5x Chance for Magnificent Souls \n"
+
+        "**October 26, 2025** \n"	
+        "• 30% off Star Force enhancements \n"
+        "• Rune Appearance Cooldown and Cooldown Reduction (from 15 minutes to 10 minutes) \n"
+        "• +100% Rune EXP buff effect (3x normal EXP) \n"
+        "• Combo Kill EXP + 300% \n"
+        "• 5x EXP for Pollo, Fritto, and Especia Bounty Hunting \n"
+        "• 5x Inferno Wolf Exit EXP (Enter up to 5 times in a day, Great Octopus Buffet - Bounty Hunter/Inferno Wolf EXP perk also applied) \n"
+        "• +250% Monster Park Clear EXP \n"
+        "• Does not include Monster Park Extreme \n"
+        "• 2x Sol Erda when hunting \n"
+        "• Sol Erda obtained through any other methods will not be increased. \n"
+
+        "**November 2, 2025** \n"	
+        "• 100% success on 5, 10, and 15-Star Force Enhancements. \n"
+        "• Excludes Superior Equipment, 100% Success Rate for Star Force Levels 5, 10, 15. \n"
+
+        "**November 9, 2025** \n"
+        "• 2x chance for new Monster Collection monsters \n"
+        "• Mysterious Monsterbloom (x3): Untradable, 7-day duration. Claim once per account. \n"
+        "• 3 Elite Monsters spawn \n"
+        "• 50% off Spell Trace enhancements \n"
+    )
         
 @bot.event
 async def on_ready():
@@ -119,6 +160,6 @@ async def on_ready():
             await fetch_latest_tweets()
         except Exception as e:
             print(f"Error fetching tweets: {e}")
-        await asyncio.sleep(600)  # Check every 10 mins
+        await asyncio.sleep(3600)  # Check every hour
 
 bot.run(DISCORD_TOKEN)
