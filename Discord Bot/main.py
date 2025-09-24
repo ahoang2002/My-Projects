@@ -19,8 +19,8 @@ def is_twitter_link(url):
 
 DISCORD_TOKEN = os.getenv('Discord_Token')
 TWITTER_BEARER_TOKEN = os.getenv('Twitter_Bearer_Token')
-# DISCORD_CHANNEL_ID = 1060745414841737366
-DISCORD_CHANNEL_ID = 1371264562132815875
+DISCORD_CHANNEL_ID = 1060745414841737366
+# DISCORD_CHANNEL_ID = 1371264562132815875
 TWITTER_USERNAME = 'Maplestory'    
 KEYWORDS = ['Details', 'details', 'Sunday', 'Patch', 'patch', 'Note', 'note', 'Sunny', 'sunny', 'Notes', 'notes'] 
 
